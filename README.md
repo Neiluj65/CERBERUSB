@@ -10,15 +10,9 @@ d'alternance chez Enedis.
 
 ## Le principe
 
-```mermaid
-flowchart LR
-    A([Clé USB branchée]) --> B[Montage lecture seule\nro,noexec,nosuid,nodev]
-    B --> C{Scan ClamAV}
-    C -->|Saine| D([🟢 Écran vert\n"tout est ok"])
-    C -->|Infectée| E([🔴 Écran rouge\nalerte + option formatage])
-    E -->|Confirmation utilisateur| F[Formatage FAT32]
-    F --> A
-```
+1. Clé USB branchée → montage automatique en lecture seule (`ro,noexec,nosuid,nodev`)
+2. Scan ClamAV du contenu
+3. Clé saine → écran vert. Clé infectée → écran rouge avec option de formatage
 
 Aucun fichier de la clé n'est jamais exécuté : le montage est verrouillé en
 lecture seule avec `noexec,nosuid,nodev` pendant toute la durée de l'analyse.
