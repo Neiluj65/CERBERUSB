@@ -19,17 +19,17 @@ lecture seule avec `noexec,nosuid,nodev` pendant toute la durée de l'analyse.
 
 ## Fonctionnalités
 
-- 🔌 **Détection à chaud** du branchement/débranchement via `pyudev` (udev),
+- **Détection à chaud** du branchement/débranchement via `pyudev` (udev),
   filtrée pour ne réagir qu'aux périphériques réellement sur bus USB
-- 🛡️ **Scan antivirus** avec ClamAV (`clamscan`), base virale mise à jour
+- **Scan antivirus** avec ClamAV (`clamscan`), base virale mise à jour
   automatiquement (`freshclam`, via un timer systemd quotidien)
-- 🔒 **Montage sécurisé** en lecture seule, sans exécution ni privilèges
-- 🧹 **Formatage confirmé** de la clé infectée (FAT32), avec re-vérification
+- **Montage sécurisé** en lecture seule, sans exécution ni privilèges
+- **Formatage confirmé** de la clé infectée (FAT32), avec re-vérification
   que le périphérique est bien un support USB avant toute action destructive
-- 🖥️ **Interface tactile Kivy** en plein écran (mode kiosque), 4 écrans :
+- **Interface tactile Kivy** en plein écran (mode kiosque), 4 écrans :
   attente, scan en cours, clé saine, clé infectée
-- 📝 **Traçabilité** : logs de chaque scan et détection dans `/var/log/borne-usb`
-- 🔌 **Air-gap friendly** : conçu pour fonctionner isolé du réseau une fois
+- **Traçabilité** : logs de chaque scan et détection dans `/var/log/borne-usb`
+- **Air-gap friendly** : conçu pour fonctionner isolé du réseau une fois
   déployé (la mise à jour ClamAV échoue silencieusement sans réseau)
 
 ## Stack technique
