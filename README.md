@@ -1,4 +1,4 @@
-# CERBERUSB 🐺🔌
+# CERBERUSB 
 
 **Borne de décontamination USB** — détection automatique, scan antivirus et
 neutralisation des clés USB infectées, sur Raspberry Pi.
