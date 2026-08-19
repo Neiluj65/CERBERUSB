@@ -1,0 +1,13 @@
+[Unit]
+Description=Déclenche la mise à jour de la base virale ClamAV une fois par jour
+
+[Timer]
+# Décalage aléatoire pour éviter que toutes les bornes du parc ne tapent
+# le serveur de mise à jour ClamAV au même moment si elles sont sur le
+# même réseau dédié.
+OnCalendar=daily
+RandomizedDelaySec=1800
+Persistent=true
+
+[Install]
+WantedBy=timers.target

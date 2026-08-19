@@ -1,0 +1,21 @@
+[Unit]
+Description=Borne de décontamination USB
+After=local-fs.target
+Wants=local-fs.target
+
+[Service]
+Type=simple
+# Raspberry Pi OS Lite : pas de serveur X, Kivy dessine directement sur le
+# framebuffer/DRM. mount/umount/mkfs.vfat nécessitent root.
+User=root
+WorkingDirectory=/opt/borne-usb
+ExecStart=/opt/borne-usb/venv/bin/python3 /opt/borne-usb/main.py
+Restart=on-failure
+RestartSec=3
+
+# Durcissement minimal (n'empêche pas mount/mkfs, qui restent nécessaires)
+NoNewPrivileges=false
+ProtectSystem=false
+
+[Install]
+WantedBy=multi-user.target

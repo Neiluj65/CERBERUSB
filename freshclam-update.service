@@ -1,0 +1,12 @@
+[Unit]
+Description=Mise à jour de la base virale ClamAV (freshclam)
+# La borne peut fonctionner air-gapped : on ne bloque pas le boot si le
+# réseau n'est pas disponible, freshclam échouera simplement silencieusement.
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/freshclam
+# N'empêche pas la borne de fonctionner si la mise à jour échoue (pas de réseau)
+SuccessExitStatus=1
